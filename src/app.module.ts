@@ -3,6 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose/dist/mongoose.module';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { ProceduresModule } from './procedures/procedures.module';
 
 @Module({
   imports: [
@@ -12,8 +13,10 @@ import { AuthModule } from './auth/auth.module';
       useUnifiedTopology: true,
       useCreateIndex: true,
     }),
+    ProceduresModule,
     UserModule,
     AuthModule,
   ]
 })
-export class AppModule {}
+
+export class AppModule { }
