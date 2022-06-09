@@ -14,15 +14,13 @@ export class AuthController {
     ) { }
 
 
-    @Get("/onlyauth")
+    @Get("/admin")
     @UseGuards(AuthGuard("jwt"))
-
     async hiddenInformation() {
         return "hidden information";
     }
 
-    @Get("/anyone")
-
+    @Get("/public")
     async publicInformation() {
         return "this can be seen by anyone";
     }
