@@ -7,7 +7,7 @@ import { ProceduresService } from './procedures.service';
 export class ProceduresController {
     constructor(private readonly procedureService:ProceduresService){}
 
-    @Get('/')
+    @Get()
     async getProcedures(@Query('name') name: string, @Query('type') type: number) {
         var result = await this.procedureService.getProcedures(name, type);
         return result;

@@ -10,13 +10,14 @@ export class ProceduresService {
     ) { }
 
     async getProcedures(name: string, type: number) {
-        const procedureModel = await this.procedureModel.find({ title: name, type: type }).exec();
+        const procedureModel = await this.procedureModel.find({ title: new RegExp(name, "i"), type: type }).exec();
         return procedureModel.map(procedure => ({
             id: procedure._id,
             title: procedure.title,
             description: procedure.description,
             value: procedure.value,
-            image: procedure.image
+            image: procedure.image,
+            type: procedure.idType
         }));
     }
 
